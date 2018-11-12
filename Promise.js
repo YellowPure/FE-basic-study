@@ -30,6 +30,10 @@ function Promise(executor) {
             if (self.status === 'pending') {
                 self.status = 'rejected';
                 self.data = reason;
+
+                if(self.onRejectCallbacks.length === 0) {
+                    console.error(reason);
+                }
                 for (var i = 0; i < self.onRejectCallbacks.length; i++) {
                     self.onRejectCallbacks[i](reason);
                 }

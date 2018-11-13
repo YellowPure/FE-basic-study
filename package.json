@@ -1,0 +1,27 @@
+{
+  "name": "fe-basic-study",
+  "version": "1.0.0",
+  "description": "study fe",
+  "main": "Promise.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YellowPure/FE-basic-study.git"
+  },
+  "keywords": [
+    "fe",
+    "study"
+  ],
+  "author": "h.love.pure@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YellowPure/FE-basic-study/issues"
+  },
+  "homepage": "https://github.com/YellowPure/FE-basic-study#readme",
+  "devDependencies": {
+    "lodash": "^4.17.11",
+    "ramda": "^0.25.0"
+  }
+}

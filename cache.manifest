@@ -1,0 +1,14 @@
+CACHE MANIFEST
+#v0.11
+
+CACHE:
+js/manifest.js
+css/manifest.css
+
+NETWORK:
+
+logo-min.png
+
+FALLBACK:
+
+/ /manifest.html

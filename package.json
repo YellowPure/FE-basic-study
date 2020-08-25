@@ -4,7 +4,7 @@
   "description": "study fe",
   "main": "Promise.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": " && promises-aplus-tests test/my-adapter"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
     "data.task": "^3.1.2",
     "lodash": "^4.17.11",
     "ramda": "^0.25.0"
+  },
+  "dependencies": {
+    "promises-aplus-tests": "*"
   }
 }

@@ -39,3 +39,46 @@ stack.push(5)
 stack.push(8)
 
 console.log(stack.peek())
+
+// 十进制转化为二进制
+function decimal2Binary(decNumber) {
+  const stack = new Stack();
+  let str = ''
+  let rem;
+  let number = decNumber
+  while (number !== 0) {
+    rem = Math.floor(number % 2);
+    stack.push(rem);
+    number = Math.floor(number / 2)
+  }
+
+  while (!stack.isEmpty()) {
+    str += stack.pop().toString();
+  }
+  return str;
+}
+
+
+function baseConverter(decNumber, base) {
+  const stack = new Stack();
+  const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+  if (base <= 2 || base > 36) {
+    return '';
+  }
+  let str = ''
+  let rem;
+  let number = decNumber
+  while (number !== 0) {
+    rem = Math.floor(number % base);
+    stack.push(rem);
+    number = Math.floor(number / base)
+  }
+
+  while (!stack.isEmpty()) {
+    str += digits[stack.pop()].toString();
+  }
+  return str;
+}
+
+console.log(baseConverter(15, 16))

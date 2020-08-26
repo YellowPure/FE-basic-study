@@ -31,19 +31,53 @@ class LinkedList {
     this.length++;
   }
   insert(element, position) {
-
+    if (position >= 0 && position < this.length) {
+      const node = new Node(element);
+      if (position === 0) {
+        const current = this.head;
+        node.next = current;
+        this.head = node;
+      } else {
+        previous = this.getElementAt(position - 1);
+        const current = previous.next;
+        node.next = current;
+        previous.next = node;
+      }
+      this.length++;
+      return true
+    }
+    return false
   }
 
   getElementAt(index) {
-
+    if (index >= 0 && index < this.length) {
+      let node = this.head;
+      for (let i = 0; i < index && node != null; i++) {
+        node = node.next
+      }
+      return node;
+    }
+    return undefined;
   }
 
   remove(element) {
-
+    const index = this.indexOf(element);
+    return this.removeAt(index);
   }
 
   indexOf(element) {
+    let current = this.head;
+    for (let i = 0; i < this.length && current != null; i++) {
+      if (this.equalsFn(current, element)) {
+        return i
+      }
+      current = current.next;
+    }
+    return -1;
+  }
 
+  equalsFn(ele1, ele2) {
+    return ele1 === ele2;
   }
 
   removeAt(position) {
@@ -53,11 +87,8 @@ class LinkedList {
       if (position === 0) {
         this.head = current.next;
       } else {
-        let previous;
-        for (let i = 0; i < position; i++) {
-          previous = current;
-          current = current.next;
-        }
+        let previous = this.getElementAt(position - 1);
+        current = previous.next;
         previous.next = current.next;
       }
       this.length--;
@@ -67,15 +98,26 @@ class LinkedList {
   }
 
   isEmpty() {
-
+    return this.length === 0;
   }
 
   size() {
+    return this.length;
+  }
 
+  getHead() {
+    return this.head;
   }
 
   toString() {
+    let objString = ``;
+    let current = this.head;
+    for (let i = 0; i < this.length && current != null; i++) {
+      objString = `${objString}, ${current.element}`;
+      current = current.next;
+    }
 
+    return objString;
   }
 }
 
@@ -83,4 +125,4 @@ const list = new LinkedList();
 list.push(15)
 list.push(10)
 list.push(20)
-console.log(list.head.next)
+console.log(list.toString())

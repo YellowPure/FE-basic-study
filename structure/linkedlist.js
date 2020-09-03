@@ -3,17 +3,23 @@
  * @author Liang Huang 
  * @date 2020-08-25 19:45:37 
  */
-class Node {
-  constructor(element) {
-    this.next = null;
+
+export function defaultEquals(ele1, ele2) {
+  return ele1 === ele2;
+}
+
+export class Node {
+  constructor(element, next) {
+    this.next = next || null;
     this.element = element;
   }
 }
 
-class LinkedList {
-  constructor() {
+export class LinkedList {
+  constructor(equalsFn = defaultEquals) {
     this.head = undefined;
     this.length = 0;
+    this.equalsFn = equalsFn;
   }
 
   push(element) {
@@ -31,7 +37,7 @@ class LinkedList {
     this.length++;
   }
   insert(element, position) {
-    if (position >= 0 && position < this.length) {
+    if (position >= 0 && position <= this.length) {
       const node = new Node(element);
       if (position === 0) {
         const current = this.head;
@@ -76,18 +82,15 @@ class LinkedList {
     return -1;
   }
 
-  equalsFn(ele1, ele2) {
-    return ele1 === ele2;
-  }
 
-  removeAt(position) {
-    if (position >= 0 && position < this.length) {
+  removeAt(index) {
+    if (index >= 0 && index < this.length) {
       let current = this.head;
 
-      if (position === 0) {
+      if (index === 0) {
         this.head = current.next;
       } else {
-        let previous = this.getElementAt(position - 1);
+        let previous = this.getElementAt(index - 1);
         current = previous.next;
         previous.next = current.next;
       }
@@ -110,9 +113,9 @@ class LinkedList {
   }
 
   toString() {
-    let objString = ``;
-    let current = this.head;
-    for (let i = 0; i < this.length && current != null; i++) {
+    let objString = `${this.head.element}`;
+    let current = this.head.next;
+    for (let i = 1; i < this.size() && current != null; i++) {
       objString = `${objString}, ${current.element}`;
       current = current.next;
     }
@@ -121,8 +124,10 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList();
-list.push(15)
-list.push(10)
-list.push(20)
-console.log(list.toString())
+// const list = new LinkedList((ele1, ele2) => {
+//   return ele1 === ele2;
+// });
+// list.push(15)
+// list.push(10)
+// list.push(20)
+// console.log(list.toString())

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "study fe",
   "main": "Promise.js",
+  "type": "module",
   "scripts": {
     "test": " && promises-aplus-tests test/my-adapter"
   },

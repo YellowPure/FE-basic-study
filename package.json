@@ -2,8 +2,6 @@
   "name": "fe-basic-study",
   "version": "1.0.0",
   "description": "study fe",
-  "main": "Promise.js",
-  "type": "module",
   "scripts": {
     "test": " && promises-aplus-tests test/my-adapter"
   },
@@ -28,6 +26,7 @@
     "ramda": "^0.25.0"
   },
   "dependencies": {
+    "@mostly-adequate/support": "^2.0.1",
     "promises-aplus-tests": "*"
   }
 }

@@ -21,8 +21,10 @@ var user = {
         }
     }
 };
+
+
 var ex1 = _.compose(chain(safeProp('name')), chain(safeProp('street')), safeProp('address'));
-// console.log(ex1(user));
+console.log(ex1(user).__value);
 
 // 练习 2
 // ==========

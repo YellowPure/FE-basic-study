@@ -10,6 +10,23 @@ function addCurring(a) {
     }
 }
 
+function currying(fn) {
+  const length = fn.length;
+  return function inner(...args) {
+    if (args.length >= length) {
+      return fn.apply(null, args)
+    } else {
+      return function (...arg2) {
+        return inner.apply(null, args.concat(arg2))
+      }
+    }
+  }
+}
+
+const m = (a,b,c) => a*b*c;
+
+const mm = currying(m)
+console.log(mm(6)(7)(8))
 // const match = curry((what, str) => {
 //     return str.match(what);
 // });

@@ -22,8 +22,12 @@
   "devDependencies": {
     "accounting": "^0.4.1",
     "data.task": "^3.1.2",
-    "lodash": "^4.17.11",
-    "ramda": "^0.25.0"
+    "ramda": "^0.25.0",
+    "diff": ">=3.5.0",
+    "minimatch": ">=3.0.2",
+    "minimist": ">=0.2.1",
+    "growl": ">=1.10.0",
+    "lodash": ">=4.17.19"
   },
   "dependencies": {
     "@mostly-adequate/support": "^2.0.1",

@@ -18,7 +18,7 @@ const a = { name: 'ssss', bill: null };
 console.log(deleteUndefinedValue(a));
 
 // TODO transfer => functional
-const uploadImg = (): Promise<any> => {
+const uploadImg = () => {
   return new Promise((resolve, reject) => {
     chooseImage({
       count: 1,
@@ -39,4 +39,26 @@ const uploadImg = (): Promise<any> => {
   })
 }
 
+
+const readFile = R.curry((callback, url) => {
+  const fileManager = getFileSystemManager();
+  fileManager.readFile({
+    filePath: url,
+    success: callback
+  })
+})
+
+const chooseImage = R.curry(callback => {
+  const res = await chooseImage({
+    count: 1,
+  }).then(res => callback(res));
+
+})
+
+uploadImg = () => {
+  const getRes = R.compose(R.prop('data'))
+  const choose = R.compose(R.head, R.prop('tempFilePaths'), chooseImage)
+  const read = R.compose(readFile(), url => url);
+  return R.compose(val => new Promise((resolve) => resolve(val)),)
+}
 

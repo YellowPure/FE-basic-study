@@ -381,6 +381,13 @@ ramda@^0.25.0:
   resolved "https://registry.npm.taobao.org/ramda/download/ramda-0.25.0.tgz#8fdf68231cffa90bc2f9460390a0cb74a29b29a9"
   integrity sha1-j99oIxz/qQvC+UYDkKDLdKKbKak=
 
+rxjs@^6.6.7:
+  version "6.6.7"
+  resolved "https://registry.npm.taobao.org/rxjs/download/rxjs-6.6.7.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frxjs%2Fdownload%2Frxjs-6.6.7.tgz#90ac018acabf491bf65044235d5863c4dab804c9"
+  integrity sha1-kKwBisq/SRv2UEQjXVhjxNq4BMk=
+  dependencies:
+    tslib "^1.9.0"
+
 safe-buffer@^5.1.2:
   version "5.2.1"
   resolved "https://registry.npm.taobao.org/safe-buffer/download/safe-buffer-5.2.1.tgz#1eaf9fa9bdb1fdd4ec75f58f9cdb4e6b7827eec6"
@@ -436,6 +443,11 @@ to-iso-string@0.0.2:
   version "0.0.2"
   resolved "https://registry.npm.taobao.org/to-iso-string/download/to-iso-string-0.0.2.tgz#4dc19e664dfccbe25bd8db508b00c6da158255d1"
   integrity sha1-TcGeZk38y+Jb2NtQiwDG2hWCVdE=
+
+tslib@^1.9.0:
+  version "1.14.1"
+  resolved "https://registry.npm.taobao.org/tslib/download/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
+  integrity sha1-zy04vcNKE0vK8QkcQfZhni9nLQA=
 
 unbox-primitive@^1.0.0:
   version "1.0.1"

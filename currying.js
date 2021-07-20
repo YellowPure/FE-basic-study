@@ -1,32 +1,17 @@
 var _ = require('ramda');
+const { iif } = require('rxjs');
 
 function add(a, b) {
-    return a + b;
+  return a + b;
 }
 
 function addCurring(a) {
-    return function(b) {
-        return a+b;
-    }
+  return function (b) {
+    return a + b;
+  };
 }
-
-function currying(fn) {
-  const length = fn.length;
-  return function inner(...args) {
-    if (args.length >= length) {
-      return fn.apply(null, args)
-    } else {
-      return function (...arg2) {
-        return inner.apply(null, args.concat(arg2))
-      }
-    }
-  }
-}
-
-const m = (a,b,c) => a*b*c;
-
-const mm = currying(m)
-console.log(mm(6)(7)(8))
+const mm = curry(m);
+console.log(mm(6)(7)(8));
 // const match = curry((what, str) => {
 //     return str.match(what);
 // });
@@ -38,7 +23,6 @@ console.log(mm(6)(7)(8))
 // split = _.map(function() {
 
 // });
-
 
 var words = _.split(' ');
 
@@ -60,28 +44,34 @@ var filterQs = _.filter(_.match(/q/i));
 // Use the helper function _keepHighest to refactor max to not reference any arguments
 
 // LEAVE BE:
-var _keepHighest = function(x,y){ return x >= y ? x : y; };
+var _keepHighest = function (x, y) {
+  return x >= y ? x : y;
+};
 
 // REFACTOR THIS ONE:
-var max = function(xs) {
-  return reduce(function(acc, x){
-    return _keepHighest(acc, x);
-  }, -Infinity, xs);
+var max = function (xs) {
+  return reduce(
+    function (acc, x) {
+      return _keepHighest(acc, x);
+    },
+    -Infinity,
+    xs
+  );
 };
 var max = _.reduce(_keepHighest, -Infinity);
 
-  
 // Bonus 1:
 // ============
 // wrap array's slice to be functional and curried.
 // //[1,2,3].slice(0, 2)
-var slice = _.curry(function(start, end, xs) {return xs.slice(start, end)});
+var slice = _.curry(function (start, end, xs) {
+  return xs.slice(start, end);
+});
 // console.log([1,2,3].slice(0, 2));
-console.log(slice(0)(2)([1,2,3]))
-
+console.log(slice(0)(2)([1, 2, 3]));
 
 // Bonus 2:
 // ============
 // use slice to define a function "take" that takes n elements. Make it curried
 var take = slice(0);
-console.log(take(5)([1,2,3,4,5,6,7]));
+console.log(take(5)([1, 2, 3, 4, 5, 6, 7]));

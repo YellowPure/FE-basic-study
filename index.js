@@ -47,7 +47,33 @@ const bigNumAdd = (a = 1, b = 2) => {
 //   bigNumAdd('2345678923456782345678345', '2345678923456782345678345')
 // );
 
-// 实现currying
+const compose = (...fns) => {
+  return function (...result) {
+    return fns.reduceRight((acc, fn) => fn(acc), ...result);
+  };
+};
+
+const curry = (fn) => {
+  const len = fn.length;
+  return function f1(...arg1) {
+    if (arg1.length >= len) {
+      return fn.apply(null, arg1);
+    } else {
+      return function f2(...arg2) {
+        return f1.apply(null, arg1.concat(arg2));
+      };
+    }
+  };
+};
+
+const sum = curry((a, b, c) => a + b + c);
+const multi = (a) => {
+  console.log(typeof a);
+  return a * 2;
+};
+const test = compose(multi, sum(2)(3));
+console.log(test(4));
+
 // 实现promise
 // extends
 

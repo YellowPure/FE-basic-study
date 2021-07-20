@@ -31,7 +31,9 @@
   },
   "dependencies": {
     "@mostly-adequate/support": "^2.0.1",
+    "debug": "^2.6.9",
     "promises-aplus-tests": "*",
-    "rxjs": "^6.6.7"
+    "rxjs": "^6.6.7",
+    "underscore": "^1.12.1"
   }
 }

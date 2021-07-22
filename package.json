@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@mostly-adequate/support": "^2.0.1",
+    "dayjs": "^1.10.6",
     "debug": "^2.6.9",
     "promises-aplus-tests": "*",
     "rxjs": "^6.6.7",

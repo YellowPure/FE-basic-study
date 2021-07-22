@@ -104,13 +104,10 @@ var getPost = function (i) {
   });
 };
 
-
 var upperTitle = _.compose(_.toUpper, _.prop('title'));
-var ex5 = _.compose(_.map(upperTitle), getPost)
+var ex5 = _.compose(_.map(upperTitle), getPost);
 
 // console.log('ex5', ex5(1).)
-
-
 
 ex5(1).fork(
   function () {
@@ -148,20 +145,17 @@ Right.prototype.map = function (f) {
 // 练习 6
 // ==========
 // 写一个函数，使用 checkActive() 和 showWelcome() 分别允许访问或返回错误
-var add = _.curry((a,b) => {
-  return a+b;
-})
+var add = _.curry((a, b) => {
+  return a + b;
+});
 var showWelcome = _.compose(add('Welcome '), _.prop('name'));
 
 var checkActive = function (user) {
   return user.active ? Right.of(user) : Left.of('Your account is not active');
 };
 
-
-var ex6 = _.compose(_.map(showWelcome), checkActive)
-console.log('ex6', ex6({active: true, name: 'yellow'}));
-
-
+var ex6 = _.compose(_.map(showWelcome), checkActive);
+console.log('ex6', ex6({ active: true, name: 'yellow' }));
 
 var ex6 = _.compose(_.map(showWelcome), checkActive);
 console.log(
@@ -201,13 +195,13 @@ IO.prototype.map = function (f) {
 };
 
 // validateUser :: (User -> Either String ()) -> User -> Either String User
-const validateUser = curry((validate, user) => validate(user).map(_ => user));
+const validateUser = curry((validate, user) => validate(user).map((_) => user));
 
 // save :: User -> IO User
-const save = user => new IO(() => ({ ...user, saved: true }));
+const save = (user) => new IO(() => ({ ...user, saved: true }));
 
 // validateName :: User -> Either String ()
-const validateName = function ({name}) {
+const validateName = function ({ name }) {
   return name.length > 3 ? Either() : Left('you need > 3');
 };
 

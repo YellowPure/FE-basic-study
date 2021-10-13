@@ -64,9 +64,11 @@ var render = _.curry(function (p, cs) {
 //  ex3 :: Task Error HTML
 var ex3 = liftA2(render, getPost(2), getComments(2));
 
-console.log(ex3.fork(null, res => {
-  console.log('res',res)
-}));
+console.log(
+  ex3.fork(null, (res) => {
+    console.log('res', res);
+  })
+);
 
 // 练习 4
 // ==========
@@ -84,7 +86,7 @@ var game = _.curry(function (p1, p2) {
   return p1 + ' vs ' + p2;
 });
 
-var ex4 = liftA2(game, getCache('player1'), getCache('player2'))
-console.log(ex4.unsafePerformIO())
+var ex4 = liftA2(game, getCache('player1'), getCache('player2'));
+console.log(ex4.unsafePerformIO());
 //  ex4 :: IO String
 // var ex4 = liftA2(game, getCache('player1'), getCache('player2'));
